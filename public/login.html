@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SafeX</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+    <h1 class="heading" onclick="reloadPage()">Welcome to SafeX</h1>
+    
+    
+    <h3 class="heading2">All chats are E2E encrypted</h3>
+    <div class="main">
+        <div class="name" id="name">
+            <span><i class="fa fa-user-circle" aria-hidden="true"></i></span>
+            <h3 class="choose">Pick an option below</h3>
+        </div>
+        <ul class="messageBlock" id="messageBlock">
+            <li class="messageLeft">
+                    <button class="pick" onclick="createRoom()">Create Room</button>
+            </li>
+
+            <li class="messageRight">
+                <button class="pick" id="joinRoom" onclick="joinRoom()">Join Room</button>
+            </li>
+
+        </ul>
+        <form class="messageSend" id="messager">
+            <input type="text" id="join" placeholder="Enter your room code if joining" disabled>
+            <button type="submit" class="sendButton" id="sender" disabled>
+                send<span><i class="fa fa-paper-plane" aria-hidden="true"></i></span>
+            </button>
+        </form>   
+    </div>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="login.js"></script>
+</body>
+</html>
