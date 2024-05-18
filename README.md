@@ -3,6 +3,7 @@
 SafeX is a secure real time chat application that does not store any user data and uses AES256 based end to end encryption.
 
 Student name: Peiris W.A.D
+
 Student ID: IT21808852
 
 # Setting up
