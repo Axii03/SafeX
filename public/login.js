@@ -6,7 +6,7 @@ function reloadPage() {
 function createRoom(){
     socket.emit('createRoom');
     socket.on('roomCode',(password)=>{
-        alert("The room code is: "+password)
+        alert("Share this code with the person you want to chat.The room code is: "+password)
         sessionStorage.setItem('roomCode', password);
         window.location="index.html";
     })

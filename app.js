@@ -17,7 +17,6 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 
 const activeRoomCodes = new Set();
-let checkRoom;
 
 io.on('connection', (socket) => {
     socket.on('createRoom',()=>{

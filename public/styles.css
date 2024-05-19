@@ -7,8 +7,8 @@
 
 
 body{
-    background-color: beige;
-    font-family: Georgia, 'Times New Roman', Times, serif;
+    background-color:#212a31;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     display:grid;
     place-items: center;
 }
@@ -25,7 +25,7 @@ body{
 }
 
 .main{
-    border:6px solid #bdb76b;
+    border:6px solid #124e66;
     border-radius: 10px;
     overflow:hidden;
 }
@@ -35,16 +35,16 @@ body{
     font-size: 30px;
     font-weight: 700;
     padding:10px 15px;
-    color: #bdb76b;
-    background-color:rgb(120, 120, 49);
+    color: #748D92;
+    background-color:#003C43;
 }
 
 .username{
     font-size:20px;
     font-weight:700;
-    color: rgb(55, 79, 13);
-    background-color: #bdb76b;
-    font-family:'Times New Roman', Times, serif;
+    color: #212a31;
+    background-color: #748d92;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     margin:0px 10px;
     border:none;
     outline: none;
@@ -53,13 +53,13 @@ body{
     font-style:oblique;
     font-size:14px;
     padding:10px 16px 16px 16px;
-    color:rgb(29, 19, 97);
+    color: white;
     text-align:center;
 }
 .messageBlock{
     display:flex;
     flex-direction: column;
-    background-color: #bdb76b;
+    background-color: #3C5B6F;
     width:600px;
     height:600px;
     overflow-y: scroll;
@@ -125,8 +125,9 @@ body{
     outline:none;
     border:none;
     height:40px;
-    background-color:#eadbcb ;
-    font-family:'Times New Roman', Times, serif;
+    background-color:#748d92 ;
+    color:#01090f;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 
 .sendButton{
@@ -135,11 +136,12 @@ body{
     font-size: 18px;
     outline: none;
     border: none;
-    background-color: #eadbcb;
+    background-color:#d3d9d4 ;
     cursor: pointer;
     display: inline-block;
     text-align: center; 
     line-height: 40px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif
 }
 
 .sendButton:hover {
@@ -162,11 +164,31 @@ body{
     color: beige;
 }
 #join{
-    flex-grow:1; /*so the input box takes all of the space*/
+    flex-grow:1; 
     font-size:20px;
     outline:none;
     border:none;
     height:40px;
-    background-color:#eadbcb ;
-    font-family:'Times New Roman', Times, serif;
+    background-color: #748d92;
+    color:#030d14;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+#join::placeholder {
+    color:#030d14; 
+    opacity: 1;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif ;
+}
+
+.messageBlock::-webkit-scrollbar {
+    width: 12px;
+}
+
+.messageBlock::-webkit-scrollbar-track {
+    background: #212a31;
+}
+
+.messageBlock::-webkit-scrollbar-thumb {
+    background-color: #748d92;
+    border-radius: 10px;
+    border: 3px solid #212a31;
 }
