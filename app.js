@@ -30,7 +30,8 @@ io.on('connection', (socket) => {
     }) 
     socket.on('joinRoom',(roomCode)=>{
         const roomPattern=/^[A-Za-z0-9]{48}$/;
-        if(roomPattern.test(roomCode) && activeRoomCodes.has(roomCode)){
+        const size=io.sockets.adapter.rooms.get(roomCode)?.size || 0;
+        if(roomPattern.test(roomCode) && activeRoomCodes.has(roomCode) && size<2){
             socket.emit('acessGranted')
         }
         else{
@@ -52,7 +53,9 @@ io.on('connection', (socket) => {
             if (newRoomSize === 2) {
                 io.in(roomCode).emit('start');
             }
-        } else {
+        } 
+        else
+        {
             socket.emit('roomFull');
         }
         

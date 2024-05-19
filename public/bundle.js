@@ -29113,8 +29113,15 @@ socket.on('receiveKey',(senderPub64)=>{
 
 
 socket.on('roomFull', () => {
-    alert("The room is already full. Please enter a valid room code.");
-    window.location.href = "login.html"; 
+    swal.fire({
+        title: 'Room is Full!',
+        text: "The room is already full. Please enter a valid room code.",
+        icon: 'error',
+        confirmButtonText: 'OK'
+    }).then(() => {
+        window.location.href = "login.html"; 
+    });
+    
 });
 
 
@@ -29193,7 +29200,12 @@ socket.on('chat',(data)=>{
         addMsg(false,decryptedData)
     }
     else{
-        alert("Message Integrity check failed.Message has been corrupted or modified.Request resend!!!!")
+        swal.fire({
+            title: 'Integrity Error',
+            text: "Message Integrity check failed.Message has been corrupted or modified.Request resend!!!!",
+            icon: 'warning',
+            confirmButtonText: 'OK'
+        })
     }        
 })
 
@@ -29266,8 +29278,15 @@ username.addEventListener('change', () => {
 })
 
 socket.on('userLeft',()=>{
-    alert("The Receiver has left the chat.Please Use a new room");
-    window.location.href = "login.html";
+    swal.fire({
+        title: 'Room Terminated!',
+        text: "The Receiver has left the chat.Please Use a new room",
+        icon: 'warning',
+        confirmButtonText: 'OK'
+    }).then(() => {
+        window.location.href = "login.html";
+    });
+    
 })
 function handleBeforeUnload() {
     socket.emit('killRoom',(roomCode));

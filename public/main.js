@@ -7,6 +7,7 @@ const message=document.getElementById('messageInput')
 const crypto = require('crypto');
 const aes256=require('aes256');
 let sessionKey;
+let established;
 const sender=crypto.createECDH('secp256k1');
 sender.generateKeys() 
 const senderPub64=sender.getPublicKey().toString('base64')
@@ -20,13 +21,21 @@ socket.on('start',()=>{
 
 socket.on('receiveKey',(senderPub64)=>{
     sessionKey=sender.computeSecret(senderPub64,'base64','hex')
+
  
 })
 
 
 socket.on('roomFull', () => {
-    alert("The room is already full. Please enter a valid room code.");
-    window.location.href = "login.html"; 
+    swal.fire({
+        title: 'Room is Full!',
+        text: "The room is already full. Please enter a valid room code.",
+        icon: 'error',
+        confirmButtonText: 'OK'
+    }).then(() => {
+        window.location.href = "login.html"; 
+    });
+    
 });
 
 
@@ -105,7 +114,12 @@ socket.on('chat',(data)=>{
         addMsg(false,decryptedData)
     }
     else{
-        alert("Message Integrity check failed.Message has been corrupted or modified.Request resend!!!!")
+        swal.fire({
+            title: 'Integrity Error',
+            text: "Message Integrity check failed.Message has been corrupted or modified.Request resend!!!!",
+            icon: 'warning',
+            confirmButtonText: 'OK'
+        })
     }        
 })
 
@@ -178,8 +192,15 @@ username.addEventListener('change', () => {
 })
 
 socket.on('userLeft',()=>{
-    alert("The Receiver has left the chat.Please Use a new room");
-    window.location.href = "login.html";
+    swal.fire({
+        title: 'Room Terminated!',
+        text: "The Receiver has left the chat.Please Use a new room",
+        icon: 'warning',
+        confirmButtonText: 'OK'
+    }).then(() => {
+        window.location.href = "login.html";
+    });
+    
 })
 function handleBeforeUnload() {
     socket.emit('killRoom',(roomCode));

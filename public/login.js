@@ -3,13 +3,19 @@ function reloadPage() {
     window.location.reload();
 }
 
-function createRoom(){
+function createRoom() {
     socket.emit('createRoom');
-    socket.on('roomCode',(password)=>{
-        alert("Share this code with the person you want to chat.The room code is: "+password)
-        sessionStorage.setItem('roomCode', password);
-        window.location="index.html";
-    })
+    socket.on('roomCode', (password) => {
+        swal.fire({
+            title: 'Room Code',
+            text: "Share this code with the person you want to chat. The room code is: " + password,
+            icon: 'success',
+            confirmButtonText: 'OK'
+        }).then(() => {
+            sessionStorage.setItem('roomCode', password);
+            window.location = "index.html";
+        });
+    });
 }
 
 
@@ -41,5 +47,13 @@ socket.on('acessGranted',()=>{
 })
 
 socket.on('accessDenied',()=>{
-    alert("Error invalid Room code")
+    swal.fire({
+        title: 'Error',
+        text: "Invalid Room Code!",
+        icon: 'error',
+        confirmButtonText: 'OK'
+    }).then(() => {
+        reloadPage()
+    });
+    
 })
