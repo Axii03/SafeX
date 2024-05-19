@@ -7,12 +7,19 @@ Student name: Peiris W.A.D
 Student ID: IT21808852
 
 # Setting up
-
+##Method 1
 Clone the github repo and open it using vscode
 
 run `npm install`  to install the necessary modules
 
 Run the command `npm start` in the terminal
+
+##method 2
+Clone the github repo
+cd into the folder
+run `npm install` in the terminal  to install the necessary modules 
+run `node app.js`  in the terminal inside the directory.
+You will get a message saying Server on port 5000 if successful
 
 ## App Navigation
 Navigate to `http://localhost:5000/` in 2 separate tabs. This is to stimulate a sender and a receiver.
