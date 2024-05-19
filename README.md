@@ -16,9 +16,13 @@ Run the command `npm start` in the terminal
 
 ## Method 2
 Clone the github repo
+
 cd into the folder
+
 run `npm install` in the terminal  to install the necessary modules 
+
 run `node app.js`  in the terminal inside the directory.
+
 You will get a message saying Server on port 5000 if successful
 
 ## App Navigation
